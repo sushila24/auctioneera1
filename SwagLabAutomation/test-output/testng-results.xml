@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-01-22T23:56:15 IST" name="Default suite" finished-at="2024-01-22T23:56:22 IST" duration-ms="7638">
+    <groups>
+    </groups>
+    <test started-at="2024-01-22T23:56:15 IST" name="Default test" finished-at="2024-01-22T23:56:22 IST" duration-ms="7638">
+      <class name="testScripts.swagLabLoginValidationNShop">
+        <test-method is-config="true" signature="precondition()[pri:0, instance:testScripts.swagLabLoginValidationNShop@16612a51]" started-at="2024-01-22T23:56:15 IST" name="precondition" finished-at="2024-01-22T23:56:19 IST" duration-ms="3925" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- precondition -->
+        <test-method signature="testLoginLogout()[pri:1, instance:testScripts.swagLabLoginValidationNShop@16612a51]" started-at="2024-01-22T23:56:19 IST" name="testLoginLogout" finished-at="2024-01-22T23:56:20 IST" duration-ms="1255" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginLogout -->
+        <test-method signature="testShoppingOnSwagLab()[pri:2, instance:testScripts.swagLabLoginValidationNShop@16612a51]" started-at="2024-01-22T23:56:20 IST" name="testShoppingOnSwagLab" finished-at="2024-01-22T23:56:22 IST" duration-ms="2263" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testShoppingOnSwagLab -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testScripts.swagLabLoginValidationNShop@16612a51]" started-at="2024-01-22T23:56:22 IST" name="tearDown" finished-at="2024-01-22T23:56:22 IST" duration-ms="143" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testScripts.swagLabLoginValidationNShop -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
