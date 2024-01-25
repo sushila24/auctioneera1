@@ -16,11 +16,11 @@ public class checkoutCompletePage extends SeleniumUtility {
 	}
 
 	@FindBy(css=".complete-header")
-	private WebElement ThankYouMessageElement;
+	private WebElement ThankYouMessage;
 	
-	public WebElement getThankYouMessageElement()
+	public WebElement getThankYouMessage()
 	{
-		return ThankYouMessageElement;
+		return ThankYouMessage;
 	}
 	
 	@FindBy(id="back-to-products")
@@ -30,11 +30,12 @@ public class checkoutCompletePage extends SeleniumUtility {
 		return backToHomeButton;
 	}
 	
-	public void validateThankYouMsg()
+	public String getSuccessMsg()
 	{
-		String expMsgAfterSuccessChkout ="Thank you for your order!";
-		Assert.assertEquals(ThankYouMessageElement.getText(), expMsgAfterSuccessChkout);
-		clickOnElement(backToHomeButton);
+//		String expMsgAfterSuccessChkout ="Thank you for your order!";
+//		Assert.assertEquals(ThankYouMessage.getText(), expMsgAfterSuccessChkout);
+//		clickOnElement(backToHomeButton);
+		return getText(ThankYouMessage);
 	}
 }
 /**

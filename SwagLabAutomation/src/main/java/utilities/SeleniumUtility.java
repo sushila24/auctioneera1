@@ -37,9 +37,6 @@ public class SeleniumUtility {
 	 */
 	{
 		filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\testData\\testAppData.properties";
-	}
-
-	public WebDriver setUp(String browserName, String appUrl) {
 		properties = new Properties();
 		try {
 			fis = new FileInputStream(filePath);
@@ -47,6 +44,10 @@ public class SeleniumUtility {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public WebDriver setUp(String browserName, String appUrl) {
+		
 		if (browserName.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
@@ -55,10 +56,10 @@ public class SeleniumUtility {
 			driver = new InternetExplorerDriver();
 		}
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.manage().deleteAllCookies();
 		driver.get(appUrl);
-		wait =new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait =new WebDriverWait(driver, Duration.ofSeconds(20));
 		action = new Actions(driver);
 		js = (JavascriptExecutor)driver;
 		return driver;
@@ -74,6 +75,11 @@ public class SeleniumUtility {
 		element.sendKeys(input);
 	}
 	
+	public String getText(WebElement element)
+	{
+		wait.until(ExpectedConditions.visibilityOf(element));
+		return element.getText();
+	}
 	public WebElement getActiveElement() {
 		return driver.switchTo().activeElement();
 	}
@@ -256,7 +262,7 @@ public class SeleniumUtility {
 	}
 
 	public void cleanUp() {
-		driver.close();
+		driver.quit();
 	}
 
 }

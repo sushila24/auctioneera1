@@ -1,0 +1,8 @@
+webPages\checkoutStepTwoPage.class
+webPages\checkoutCompletePage.class
+testScripts\SwagLabLoginValidation.class
+webPages\swagLabCartPage.class
+testScripts\SwagLabCartValidation.class
+webPages\swagLabHomePage.class
+webPages\checkoutStepOnePage.class
+webPages\swagLabLoginPage.class

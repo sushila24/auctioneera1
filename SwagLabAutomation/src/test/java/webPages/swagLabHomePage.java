@@ -1,5 +1,11 @@
 package webPages;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,11 +26,18 @@ public class swagLabHomePage extends SeleniumUtility{
 	@FindBy(id="logout_sidebar_link")  //@FindBy(linkText="Logout")
 	private WebElement logoutButton;
 	
-	@FindBy(id="add-to-cart-sauce-labs-backpack")
-	private WebElement addToCartBackPack;     //1st product added to cart-Sauce Labs Backpack
+	@FindBy(xpath="//div[@class='inventory_item_name ']")
+	//private WebElement addToCartBackPack;     //1st product added to cart-Sauce Labs Backpack
+	private List<WebElement> productNameList;
 	
-	@FindBy(id="add-to-cart-sauce-labs-bike-light")
-	private WebElement addToCartBikeLight;    //2nd product added to cart-Sauce Labs Bike Light
+	@FindBy(xpath="//div[div[a[div[@class='inventory_item_name ']]]]/div[2]/div")
+	//private WebElement addToCartBackPack;     //1st product added to cart-Sauce Labs Backpack
+	private List<WebElement> productPriceList;
+	
+	@FindBy(css="button[id^='add-to-cart']")
+	//private WebElement addToCartBackPack;     //1st product added to cart-Sauce Labs Backpack
+	private List<WebElement> addToCartButton;
+
 	
 	@FindBy(id="shopping_cart_container")
 	private WebElement shoppingCartButton;
@@ -39,15 +52,7 @@ public class swagLabHomePage extends SeleniumUtility{
 	{
 		return logoutButton;
 	}
-	public WebElement getaddToCartBackPack()
-	{
-		return addToCartBackPack;
-	}
 	
-	public WebElement getaddToCartBikeLight()
-	{
-		return addToCartBikeLight;
-	}
 	public WebElement getshoppingCartButton()
 	{
 		return shoppingCartButton;
@@ -56,11 +61,26 @@ public class swagLabHomePage extends SeleniumUtility{
 	public void addToCart()
 	{
 		//clickOnElement(navigatePannel);
-		clickOnElement(addToCartBackPack);
-		clickOnElement(addToCartBikeLight);
+		clickOnElement(addToCartButton.get(0));
+		clickOnElement(addToCartButton.get(1));
 		clickOnElement(shoppingCartButton);
 	}
-	
+	public Map<String,String> getProductsOnHomePage()
+	{
+		//Map<String,String> m1=new HashMap<String,String>();
+		Map<String,String> m2=new HashMap<String,String>();
+		//items purchased list
+		  List<WebElement> itemsList=driver.findElements(By.xpath("//div[@class='inventory_item_name ']"));
+		//concept of Independant(Item) n dependant child(Item price)
+		  List<WebElement> pricesList=driver.findElements(By.xpath("//div[div[a[div[@class='inventory_item_name ']]]]/div[2]/div"));
+		  //store product name n price inside the map
+		  m2.put(itemsList.get(0).getText(), pricesList.get(0).getText());
+		  m2.put(itemsList.get(2).getText(), pricesList.get(2).getText());
+
+		
+		return m2;
+		
+	}
 	public void logoutFromApplication()
 	{
 		clickOnElement(navigatePannel);
