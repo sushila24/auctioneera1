@@ -1,0 +1,15 @@
+webPages\checkoutStepTwoPage.class
+testScripts\TestOrangeHrmPim.class
+webPages\checkoutCompletePage.class
+webPages\PIMHomePage.class
+testScripts\SwagLabCartValidation.class
+webPages\swagLabHomePage.class
+testScripts\TestOrangeHRMLoginLogout.class
+webPages\checkoutStepOnePage.class
+webPages\swagLabLoginPage.class
+webPages\PersonalDetailsPage.class
+testScripts\SwagLabLoginValidation.class
+webPages\swagLabCartPage.class
+webPages\PIMAddEmployeePage.class
+webPages\HRMLoginPage.class
+webPages\HRMHomePage.class
